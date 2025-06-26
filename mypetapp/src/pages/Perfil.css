@@ -1,0 +1,107 @@
+.pagina-perfil {
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    background-color: #d4f1d4;
+
+}
+
+.pagina-perfil h1 {
+    color: #1e701c;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.container-do-perfil {
+    max-width: 900px;
+    width: 100%;
+    background-color: #1e701c;
+    border-radius: 10px;
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+h1 {
+    margin-left: 100px;
+    color: #1e701c;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+.campo-de-foto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+.campo-de-foto img {
+    width: 160px;
+    height: 160px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.campo-de-foto h2 {
+    margin: 2px 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.campo-de-texto {
+    flex: 1;
+}
+
+.campo-de-texto div {
+    margin-bottom: 20px;
+}
+
+.campo-de-texto h2 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.campo-de-texto input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+}
+
+.caixa-dos-botoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.caixa-dos-botoes button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.caixa-dos-botoes button:first-child {
+    background-color: white;
+    color: green;
+    border: 2px solid green;
+}
+
+.caixa-dos-botoes button:last-child {
+    background-color: #c31919;
+    color: white;
+}
