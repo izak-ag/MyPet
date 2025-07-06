@@ -1,0 +1,25 @@
+.contact-page {
+  padding: 50px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contact-page h2 {
+  color: #286e1a;
+  font-size: 40px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.filter {
+  padding: 0 50px 0 0;
+  align-self: flex-end;
+  display: flex;
+  gap: 24px;
+}
