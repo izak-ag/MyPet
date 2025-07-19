@@ -1,0 +1,39 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.label {
+  color: #286e1a;
+  font-size: 20px;
+  font-weight: bold;
+}
+.select-input {
+  background-color: #61a452;
+  color: white;
+  font-size: 20px;
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.serch-button {
+  padding: 0;
+  min-width: 40px;
+  min-height: 40px;
+  align-self: center;
+  background-color: #286e1a;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.serch-button img {
+  width: 35px;
+  height: 35px;
+}
+
+.serch-button:hover {
+  transition: 0.2s;
+  background-color: #3c7c2f;
+}
