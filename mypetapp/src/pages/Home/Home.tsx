@@ -1,6 +1,20 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import "./style.css";
+import { useEffect } from "react";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <main>
       <section className="session1">
@@ -15,10 +29,18 @@ const Home = () => {
             adipiscing.
           </p>
           <div className="buttons">
-            <button className="btn button3">
+            <button
+              className="btn button3"
+              onClick={() => navigate("/cadastro")}
+            >
               Quero me tornar um prestador
             </button>
-            <button className="btn button2">Encontrar um prestador</button>
+            <button
+              className="btn button2"
+              onClick={() => navigate("/contact")}
+            >
+              Encontrar um prestador
+            </button>
           </div>
         </div>
         <div className="image"></div>

@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home.tsx";
-import Cadastro from "./pages/Cadastro.jsx"
-import Login from "./pages/Login.jsx"
+import Cadastro from "./pages/Cadastro/Cadastro.jsx"
+import Login from "./pages/Login/Login.jsx"
 import Perfil from "./pages/Perfil/Perfil.jsx";
 import Contact from "./pages/Contact/Contact.tsx";
 
