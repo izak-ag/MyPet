@@ -1,0 +1,32 @@
+.header {
+  background-color: #286e1a;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  gap: 48px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.title a {
+  color: white;
+  text-decoration: none;
+  font-family: "Parisienne", handwriting;
+  font-weight: 400;
+  font-size: 32px;
+}
+
+.auth {
+  display: flex;
+  gap: 32px;
+}
