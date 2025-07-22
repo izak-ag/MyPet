@@ -11,5 +11,6 @@ export default {
     user: 'root',
     password: 'password',
     database: 'db',
+    ssl: false,
   },
 } satisfies Config;

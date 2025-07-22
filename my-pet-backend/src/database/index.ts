@@ -11,6 +11,7 @@ const queryClient = new pg.Client({
   database: 'db',
   user: 'root',
   password: 'password',
+  ssl: false,
 });
 
 if (process.env.NODE_ENV !== 'test') {
