@@ -1,12 +1,16 @@
 import { ExtractTablesWithRelations } from 'drizzle-orm';
 import { drizzle, NodePgQueryResultHKT } from 'drizzle-orm/node-postgres';
 import { PgTransaction } from 'drizzle-orm/pg-core';
-import pg from 'pg';
+import * as pg from 'pg';
 
 const schema = {};
 
 const queryClient = new pg.Client({
-  connectionString: process.env.DATABASE_URI,
+  host: 'localhost',
+  port: 5432,
+  database: 'db',
+  user: 'root',
+  password: 'password',
 });
 
 if (process.env.NODE_ENV !== 'test') {
