@@ -9,7 +9,7 @@ services:
       - '5432:5432'
     environment:
       POSTGRES_USER: root
-      POSTGRES_PASSWORD: teste
+      POSTGRES_PASSWORD: password
       POSTGRES_DB: db
     volumes:
       - pgdata:/var/lib/postgresql/data
