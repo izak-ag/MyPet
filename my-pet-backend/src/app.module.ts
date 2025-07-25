@@ -6,8 +6,10 @@ import { ConfigModule } from '@nestjs/config';
 import { CuidadoresController } from './cuidadores/cuidadores.controller';
 import { CuidadoresService } from './cuidadores/cuidadores.service';
 
+import { ComentariosModule } from './comentarios/comentarios.module';
+
 @Module({
-  imports: [DrizzleModule, ConfigModule],
+  imports: [ComentariosModule, DrizzleModule, ConfigModule],
   controllers: [AppController, CuidadoresController],
   providers: [AppService, CuidadoresService],
 })

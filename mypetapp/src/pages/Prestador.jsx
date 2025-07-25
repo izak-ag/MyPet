@@ -1,83 +1,114 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "./Prestador.css";
 
-const Prestador = () => {
+export default function Prestador() {
+  const cuidadorId = 1; // ID do cuidador fixo (pode vir de rota futuramente)
   const [comentario, setComentario] = useState("");
-  const [avaliacoes, setAvaliacoes] = useState([
-    {
-      nome: "Name",
-      nota: 4.5,
-      texto: "Lorem ipsum dolor sit amet consectetur...",
-    },
-    {
-      nome: "Name",
-      nota: 4.5,
-      texto: "Lorem ipsum dolor sit amet consectetur...",
-    },
-    {
-      nome: "Name",
-      nota: 4.5,
-      texto: "Lorem ipsum dolor sit amet consectetur...",
-    },
-  ]);
+  const [avaliacao, setAvalicao] = useState("");
+  const [nome, setNome] = useState("");
+  const [avaliacoes, setAvaliacoes] = useState([]);
 
-  const handleSubmit = () => {
-    if (comentario.trim()) {
-      setAvaliacoes([
-        ...avaliacoes,
-        { nome: "Você", nota: 5, texto: comentario },
-      ]);
-      setComentario("");
+  const carregarComentarios = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:3001/comentarios/${cuidadorId}`
+      );
+      setAvaliacoes(res.data);
+    } catch (error) {
+      console.error("Erro ao carregar comentários:", error);
     }
   };
 
+  const handleSubmit = async () => {
+    if (!comentario.trim() || !nome.trim()) return;
+    try {
+      await axios.post("http://localhost:3001/comentarios", {
+        cuidadorId,
+        nome,
+        comentario,
+        avaliacao,
+      });
+      setComentario("");
+      setNome("");
+      setAvalicao("");
+      carregarComentarios();
+    } catch (error) {
+      console.error("Erro ao enviar comentário:", error);
+    }
+  };
+
+  useEffect(() => {
+    carregarComentarios();
+  }, []);
+
   return (
     <div className="prestador-container">
-      <h2>Prestador</h2>
+      <h2 className="subtitle">Prestador</h2>
       <div className="card-prestador">
-        <div className="imagem-placeholder"></div>
+        <img width={150} height={150} src="/images/marco.jpeg" alt="" />
         <div className="info-prestador">
-          <h3>Name</h3>
-          <p>⭐ 4.5/5</p>
+          <h3>Marcos Aurélio</h3>
+          <p>⭐ 3.5/5</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur. Nac massa amet urna
-            fermentum aliquet...
+            Olá! Me chamo Marcos Aurélio e sou cuidador de pets há mais de 3
+            anos. Tenho experiência com cães e gatos de todas as idades,
+            oferecendo carinho, alimentação, passeios e acompanhamento diário.
+            Cuido como se fossem meus, sempre respeitando as orientações dos
+            tutores. Também envio fotos e vídeos durante o cuidado para garantir
+            sua tranquilidade. Seu pet estará em boas mãos! 🐾
           </p>
           <ul>
-            <li>Serviço 1</li>
-            <li>Serviço 2</li>
+            <li>Passeio</li>
+            <li>Banho</li>
+            <li>Alimentação</li>
           </ul>
-          <button>Contatar</button>
+          <button className="btn button1">Contatar</button>
         </div>
       </div>
 
       <button className="denunciar">⚠️ Denunciar</button>
 
-      <h3>Avaliações</h3>
+      <h3 className="subtitle">Avaliações</h3>
       <div className="avaliacao-form">
-        <label>Avaliação</label>
-        <div>⭐⭐⭐⭐⭐</div>
+        <div className="form-div">
+          <label>Nome: </label>
+          <input
+            type="text"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          />
+        </div>
+        <div className="form-div">
+          <label>Avaliação</label>
+          <div>⭐</div>
+          <input
+            type="number"
+            id="avalicao"
+            name="avalicao"
+            onChange={(e) => setAvalicao(e.target.value)}
+          />
+        </div>
         <textarea
-          placeholder="Placeholder"
+          placeholder="Digite seu comentário"
           value={comentario}
           onChange={(e) => setComentario(e.target.value)}
         />
-        <button onClick={handleSubmit}>Enviar</button>
+        <button className="btn button1" onClick={handleSubmit}>
+          Enviar
+        </button>
       </div>
 
       {avaliacoes.map((av, idx) => (
         <div className="card-avaliacao" key={idx}>
-          <div className="mini-foto"></div>
+          <img src="images/coment.jpeg" className="mini-foto" alt="" />
           <div>
             <h4>{av.nome}</h4>
-            <p>⭐ {av.nota}</p>
-            <p>{av.texto}</p>
+            <p>{av.comentario}</p>
+            <p>Avaliação: {av.avaliacao}/5 ⭐</p>
           </div>
         </div>
       ))}
     </div>
   );
-};
-
-export default Prestador;
+}

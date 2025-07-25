@@ -5,5 +5,4 @@ export const user = pgTable('users', {
   name: varchar('name', { length: 100 }),
   email: text('email').notNull(),
   type: text('type'),
-  
 });

@@ -43,7 +43,7 @@ const Home = () => {
             </button>
           </div>
         </div>
-        <div className="image"></div>
+        <img width={500} height={500} src="/images/dog2.jpeg" alt="" />
       </section>
       <section className="aboutUs" id="aboutUs">
         <h2>Sobre Nós</h2>
@@ -64,7 +64,7 @@ const Home = () => {
       </section>
       <section className="extra">
         <article>
-          <div className="image"></div>
+          <img width={286} src="/images/dog6.jpeg " alt="" />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget
             ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.
@@ -79,7 +79,7 @@ const Home = () => {
             Pellentesque habitant morbi tristique senectus et netus et malesuada
             fames ac turpis egestas.
           </p>
-          <div className="image"></div>
+          <img width={286} src="/images/dog4.jpeg" alt="" />
         </article>
       </section>
     </main>
