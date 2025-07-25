@@ -8,18 +8,11 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
 
-  const corsOriginAddress = configService.get<string[]>('cors.corsOrigin');
-
-  const corsOrigin =
-    corsOriginAddress?.map((origin) =>
-      origin.startsWith('/') && origin.endsWith('/')
-        ? new RegExp(origin.slice(1, -1))
-        : origin,
-    ) || true;
-
   app.enableCors({
-    origin: corsOrigin,
-    methods: configService.get('cors.corsMethods'),
+    origin: 'http://localhost:3000',
+    methods:
+      configService.get<string>('cors.corsMethods') ||
+      'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
 
