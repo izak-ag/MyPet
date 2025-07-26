@@ -1,9 +1,10 @@
 import { Card } from "../../interfaces/Card";
+import { useNavigate } from "react-router-dom";
+
 import "./style.css";
 
-
-
 const ContactCard = ({ image, name, stars, services, description }: Card) => {
+  const navigate = useNavigate();
   return (
     <article className="contact-card-article">
       <div className="contact-card">
@@ -30,7 +31,7 @@ const ContactCard = ({ image, name, stars, services, description }: Card) => {
           <p className="description">{description}</p>
         </div>
       </div>
-      <button className="next-button">
+      <button className="next-button" onClick={() => navigate("/prestador")}>
         <img src="/icons/rightArrow.svg" alt="" />
       </button>
     </article>

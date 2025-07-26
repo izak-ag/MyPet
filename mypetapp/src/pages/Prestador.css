@@ -1,0 +1,102 @@
+.prestador-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.prestador-container .subtitle {
+  align-self: center;
+  color: #286e1a;
+  font-size: 25px;
+}
+
+.card-prestador {
+  display: flex;
+  background-color: #286e1a;
+  color: white;
+  padding: 16px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  gap: 18px;
+}
+
+.imagem-placeholder {
+  min-width: 150px;
+  height: 150px;
+  background-color: white;
+  border-radius: 4px;
+  margin-right: 16px;
+}
+
+.info-prestador button {
+  display: flex;
+  margin-top: 10px;
+  padding: 6px 12px;
+}
+
+.denunciar {
+  background: none;
+  border: none;
+  color: red;
+  margin: 10px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.avaliacao-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #286e1a;
+  padding: 16px;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  gap: 15px;
+}
+
+.avaliacao-form .button1 {
+  align-self: flex-end;
+}
+
+.avaliacao-form .form-div {
+  display: flex;
+  gap: 5px;
+}
+
+.avaliacao-form textarea {
+  height: 60px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.card-avaliacao {
+  display: flex;
+  background-color: #286e1a;
+  color: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+.card-avaliacao div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-avaliacao h4,
+p {
+  margin: 0;
+}
+
+.mini-foto {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 4px;
+  margin-right: 16px;
+}

@@ -4,6 +4,11 @@ import "./style.css";
 const Header = () => {
   const navigate = useNavigate();
 
+  const data = localStorage.getItem("cuidador");
+
+  const cuidador = data ? JSON.parse(data) : null;
+  const isLogged = !!cuidador;
+
   return (
     <header className="header">
       <h1 className="title">
@@ -16,12 +21,21 @@ const Header = () => {
       </nav>
 
       <div className="auth">
-        <button className="btn button1" onClick={() => navigate("/login")}>
-          Login
-        </button>
-        <button className="btn button2" onClick={() => navigate("/cadastro")}>
-          Cadastro
-        </button>
+        {isLogged ? (
+          <p className="userName">Olá, {cuidador.nome}</p>
+        ) : (
+          <>
+            <button className="btn button1" onClick={() => navigate("/login")}>
+              Login
+            </button>
+            <button
+              className="btn button2"
+              onClick={() => navigate("/cadastro")}
+            >
+              Cadastro
+            </button>
+          </>
+        )}
       </div>
     </header>
   );
